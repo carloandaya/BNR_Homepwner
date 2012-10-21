@@ -17,9 +17,9 @@
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        for (int i = 0; i < 5; i++) {
-            [[BNRItemStore sharedStore] createItem];
-        }
+        //for (int i = 0; i < 5; i++) {
+        //    [[BNRItemStore sharedStore] createItem];
+        //}
     }
     return self;
 }
@@ -45,16 +45,21 @@
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
-    
-    [[cell textLabel] setText:[p description]];
+    if ([indexPath row] == [[[BNRItemStore sharedStore] allItems] count]) {
+        [[cell textLabel] setText:@"No more items!"];
+    }
+    else {
+        BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+        
+        [[cell textLabel] setText:[p description]];
+    }
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+    return [[[BNRItemStore sharedStore] allItems] count] + 1;
 }
 
 @end
