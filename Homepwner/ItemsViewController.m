@@ -41,20 +41,69 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
+    
+    // Sort the array according to the values of the items
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    NSArray *sortedArray = [items sortedArrayUsingComparator:^(id obj1, id obj2) {
+        if ([obj1 valueInDollars] > [obj2 valueInDollars]) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
         
+        if ([obj1 valueInDollars] < [obj2 valueInDollars]) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    
+    NSIndexSet *section0 = [items indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop){
+        if ([(BNRItem *)obj valueInDollars] < 50)
+            return YES;
+        else
+            return NO;
+    }];
+    
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+    
+    BNRItem *p;
+    if ([indexPath section] == 0) {
+        p = [sortedArray objectAtIndex:[indexPath row]];
+    }
+    else {
+        p = [sortedArray objectAtIndex:[indexPath row] + [section0 count]];
+    }
     
     [[cell textLabel] setText:[p description]];
+    
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    NSIndexSet *section0 = [items indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop){
+        if ([(BNRItem *)obj valueInDollars] < 50)
+            return YES;
+        else
+            return NO;
+    }];
+    
+    if (section == 0) {
+        // count the number of items that are less than or equal to $50
+        return [section0 count];
+    }
+    else {
+        // count the number of items that are greater than $50
+        return [items count] - [section0 count];
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
 @end
