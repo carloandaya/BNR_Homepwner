@@ -19,6 +19,7 @@
 		23FAE72716339CB300AA23EA /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72616339CB300AA23EA /* ItemsViewController.m */; };
 		23FAE72B16339FC500AA23EA /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72A16339FC500AA23EA /* BNRItem.m */; };
 		23FAE72E1633A09000AA23EA /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72D1633A09000AA23EA /* BNRItemStore.m */; };
+		23FBC6C11634A36B0080EE15 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FBC6C01634A36B0080EE15 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		23FAE72A16339FC500AA23EA /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		23FAE72C1633A09000AA23EA /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		23FAE72D1633A09000AA23EA /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		23FBC6C01634A36B0080EE15 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				23FAE71416339BE300AA23EA /* HomepwnerAppDelegate.m */,
 				23FAE70B16339BE300AA23EA /* Supporting Files */,
 				23FAE72516339CB300AA23EA /* ItemsViewController.h */,
+				23FBC6C01634A36B0080EE15 /* HeaderView.xib */,
 				23FAE72616339CB300AA23EA /* ItemsViewController.m */,
 			);
 			path = Homepwner;
@@ -170,6 +173,7 @@
 				23FAE71716339BE300AA23EA /* Default.png in Resources */,
 				23FAE71916339BE300AA23EA /* Default@2x.png in Resources */,
 				23FAE71B16339BE300AA23EA /* Default-568h@2x.png in Resources */,
+				23FBC6C11634A36B0080EE15 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

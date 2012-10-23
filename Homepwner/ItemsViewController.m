@@ -57,4 +57,58 @@
     return [[[BNRItemStore sharedStore] allItems] count];
 }
 
+- (UIView *)headerView
+{
+    // If we haven't loaded the headerView yet...
+    if (!headerView) {
+        // Load HeaderView.xib
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    
+    return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return [self headerView];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    // The height of the header view should be determined from the height of the
+    // view in the XIB file
+    return [[self headerView] bounds].size.height;
+}
+
+- (IBAction)addNewItem:(id)sender
+{
+    // Create a new BNRItem and add it to the store
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    
+    // Figure out where the item is in the array
+    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    // Insert this new row into the table
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction)toggleEditingMode:(id)sender
+{
+    NSLog(@"Clicked on Edit button.");
+    // If we are currently in editing mode...
+    if ([self isEditing]) {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        // Turn off editing mode
+        [self setEditing:NO animated: YES];
+    } else {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        // Enter editing mode
+        [self setEditing:YES animated:YES];
+    }
+}
+
 @end

@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ItemsViewController : UITableViewController <UITableViewDataSource>
+@interface ItemsViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    IBOutlet UIView *headerView;
+}
+
+- (UIView *)headerView;
+- (IBAction)addNewItem:(id)sender;
+- (IBAction)toggleEditingMode:(id)sender;
 
 @end
