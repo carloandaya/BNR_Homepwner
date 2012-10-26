@@ -9,6 +9,7 @@
 #import "ItemsViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "DetailViewController.h"
 
 @implementation ItemsViewController
 
@@ -133,6 +134,27 @@
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Remove";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    BNRItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    
+    // Give detail view controller a pointer to the item object in row
+    [detailViewController setItem:selectedItem];
+    
+    // Push it onto the top of the navigation controller's stack
+    [[self navigationController] pushViewController:detailViewController animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[self tableView] reloadData];
 }
 
 @end

@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@class BNRItem;
+
+@interface DetailViewController : UIViewController <UITextFieldDelegate>
 {
     __weak IBOutlet UITextField *nameField;
     __weak IBOutlet UITextField *serialNumberField;
     __weak IBOutlet UITextField *valueField;
     __weak IBOutlet UILabel *dateLabel;
 }
+
+@property (nonatomic, strong) BNRItem *item;
 @end
