@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "BNRItem.h"
+#import "ChangeDateViewController.h"
 
 @interface DetailViewController ()
 
@@ -22,7 +23,8 @@
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     
-    [valueField setDelegate:self];
+    [nameField setDelegate:self];
+    [serialNumberField setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,4 +63,21 @@
     
     return YES;
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view] endEditing:YES];
+}
+
+- (IBAction)changeDate:(id)sender
+{
+    // Create the ChangeDateViewController
+    ChangeDateViewController *cdvc = [[ChangeDateViewController alloc] init];
+    
+    // Pass BNRItem
+    [cdvc setItem:item];
+    
+    [[self navigationController] pushViewController:cdvc animated:YES];
+}
+
 @end

@@ -21,7 +21,8 @@
 		23FAE72716339CB300AA23EA /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72616339CB300AA23EA /* ItemsViewController.m */; };
 		23FAE72B16339FC500AA23EA /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72A16339FC500AA23EA /* BNRItem.m */; };
 		23FAE72E1633A09000AA23EA /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAE72D1633A09000AA23EA /* BNRItemStore.m */; };
-		23FBC6C11634A36B0080EE15 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FBC6C01634A36B0080EE15 /* HeaderView.xib */; };
+		23FB818D163B9E3D005097D3 /* ChangeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FB818B163B9E3D005097D3 /* ChangeDateViewController.m */; };
+		23FB818E163B9E3D005097D3 /* ChangeDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23FB818C163B9E3D005097D3 /* ChangeDateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +48,9 @@
 		23FAE72A16339FC500AA23EA /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		23FAE72C1633A09000AA23EA /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		23FAE72D1633A09000AA23EA /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
-		23FBC6C01634A36B0080EE15 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		23FB818A163B9E3D005097D3 /* ChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDateViewController.h; sourceTree = "<group>"; };
+		23FB818B163B9E3D005097D3 /* ChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeDateViewController.m; sourceTree = "<group>"; };
+		23FB818C163B9E3D005097D3 /* ChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeDateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				23FAE72916339FC500AA23EA /* BNRItem.h */,
+				23FB818A163B9E3D005097D3 /* ChangeDateViewController.h */,
+				23FB818B163B9E3D005097D3 /* ChangeDateViewController.m */,
+				23FB818C163B9E3D005097D3 /* ChangeDateViewController.xib */,
 				23FAE72C1633A09000AA23EA /* BNRItemStore.h */,
 				23FAE72D1633A09000AA23EA /* BNRItemStore.m */,
 				23FAE72A16339FC500AA23EA /* BNRItem.m */,
@@ -105,7 +111,6 @@
 				23F1CCA81638FA97008E219B /* DetailViewController.xib */,
 				23FAE70B16339BE300AA23EA /* Supporting Files */,
 				23FAE72516339CB300AA23EA /* ItemsViewController.h */,
-				23FBC6C01634A36B0080EE15 /* HeaderView.xib */,
 				23FAE72616339CB300AA23EA /* ItemsViewController.m */,
 			);
 			path = Homepwner;
@@ -181,8 +186,8 @@
 				23FAE71716339BE300AA23EA /* Default.png in Resources */,
 				23FAE71916339BE300AA23EA /* Default@2x.png in Resources */,
 				23FAE71B16339BE300AA23EA /* Default-568h@2x.png in Resources */,
-				23FBC6C11634A36B0080EE15 /* HeaderView.xib in Resources */,
 				23F1CCAA1638FA97008E219B /* DetailViewController.xib in Resources */,
+				23FB818E163B9E3D005097D3 /* ChangeDateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +204,7 @@
 				23FAE72B16339FC500AA23EA /* BNRItem.m in Sources */,
 				23FAE72E1633A09000AA23EA /* BNRItemStore.m in Sources */,
 				23F1CCA91638FA97008E219B /* DetailViewController.m in Sources */,
+				23FB818D163B9E3D005097D3 /* ChangeDateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

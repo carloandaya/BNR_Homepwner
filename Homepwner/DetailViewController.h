@@ -18,5 +18,8 @@
     __weak IBOutlet UILabel *dateLabel;
 }
 
-@property (nonatomic, strong) BNRItem *item;
+- (IBAction)changeDate:(id)sender;
+
+@property (nonatomic, strong) BNRItem *item; 
+
 @end
