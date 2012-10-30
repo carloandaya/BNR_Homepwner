@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234574D8163F6659005BC596 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 234574D7163F6659005BC596 /* BNRImageStore.m */; };
 		23F1CCA91638FA97008E219B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F1CCA71638FA97008E219B /* DetailViewController.m */; };
 		23F1CCAA1638FA97008E219B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F1CCA81638FA97008E219B /* DetailViewController.xib */; };
 		23FAE70516339BE300AA23EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FAE70416339BE300AA23EA /* UIKit.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		234574D6163F6659005BC596 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		234574D7163F6659005BC596 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 		23F1CCA61638FA97008E219B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		23F1CCA71638FA97008E219B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		23F1CCA81638FA97008E219B /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				23FAE70B16339BE300AA23EA /* Supporting Files */,
 				23FAE72516339CB300AA23EA /* ItemsViewController.h */,
 				23FAE72616339CB300AA23EA /* ItemsViewController.m */,
+				234574D6163F6659005BC596 /* BNRImageStore.h */,
+				234574D7163F6659005BC596 /* BNRImageStore.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				23FAE72E1633A09000AA23EA /* BNRItemStore.m in Sources */,
 				23F1CCA91638FA97008E219B /* DetailViewController.m in Sources */,
 				23FB818D163B9E3D005097D3 /* ChangeDateViewController.m in Sources */,
+				234574D8163F6659005BC596 /* BNRImageStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
