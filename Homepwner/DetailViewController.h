@@ -10,15 +10,17 @@
 
 @class BNRItem;
 
-@interface DetailViewController : UIViewController <UITextFieldDelegate>
+@interface DetailViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     __weak IBOutlet UITextField *nameField;
     __weak IBOutlet UITextField *serialNumberField;
     __weak IBOutlet UITextField *valueField;
     __weak IBOutlet UILabel *dateLabel;
+    __weak IBOutlet UIImageView *imageView;
 }
 
 - (IBAction)changeDate:(id)sender;
+- (IBAction)takePicture:(id)sender;
 
 @property (nonatomic, strong) BNRItem *item; 
 
