@@ -10,7 +10,7 @@
 
 @implementation BNRItem
 
-@synthesize containedItem, container, itemName, serialNumber, valueInDollars, dateCreated;
+@synthesize containedItem, container, itemName, serialNumber, valueInDollars, dateCreated, imageKey;
 
 - (void)setContainedItem:(BNRItem *)i {
     containedItem = i;

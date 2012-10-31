@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "ChangeDateViewController.h"
+#import "BNRImageStore.h"
 
 @interface DetailViewController ()
 
@@ -101,6 +102,24 @@
 {
     // Get picked image from info dictionary
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // Generate a unique id for every time a picture is taken
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // Create a string from unique identifier
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
+    // Use that unique ID to set our item's imageKey
+    NSString *key = (__bridge NSString *)newUniqueIDString;
+    [item setImageKey:key];
+    
+    // Store image in the BNRImageStore with this key
+    [[BNRImageStore sharedStore] setImage:image forKey:key];
+    
+    // Need to release the CF objects because their pointers will be destroyed
+    // when this method ends and ARC will not clean up
+    CFRelease(newUniqueID);
+    CFRelease(newUniqueIDString);
     
     // Put that image onto the screen in our image view
     [imageView setImage:image];
