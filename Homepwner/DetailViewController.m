@@ -78,11 +78,6 @@
     return YES;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [[self view] endEditing:YES];
-}
-
 - (IBAction)changeDate:(id)sender
 {
     // Create the ChangeDateViewController
@@ -109,6 +104,11 @@
     
     // Place image picker on screen
     [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (IBAction)backgroundTapped:(id)sender
+{
+    [[self view] endEditing:YES];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
