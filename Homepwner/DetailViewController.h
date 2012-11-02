@@ -22,6 +22,7 @@
 - (IBAction)changeDate:(id)sender;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
+- (IBAction)removePicture:(id)sender;
 
 @property (nonatomic, strong) BNRItem *item; 
 

@@ -91,6 +91,7 @@
 
 - (IBAction)takePicture:(id)sender {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    [imagePicker setAllowsEditing:YES];
     
     // If our device has a camera, we want to take a picture, otherwise, we
     // just pick from photo library
@@ -111,6 +112,18 @@
     [[self view] endEditing:YES];
 }
 
+- (IBAction)removePicture:(id)sender {
+    NSString *oldKey = [item imageKey];
+    
+    // Did the item already have an image?
+    if (oldKey) {
+        // Delete the old image
+        [[BNRImageStore sharedStore] deleteImageForKey:oldKey];
+    }
+    
+    [imageView setImage:nil];
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *oldKey = [item imageKey];
@@ -121,7 +134,7 @@
         [[BNRImageStore sharedStore] deleteImageForKey:oldKey];
     }
     // Get picked image from info dictionary
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     // Generate a unique id for every time a picture is taken
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
