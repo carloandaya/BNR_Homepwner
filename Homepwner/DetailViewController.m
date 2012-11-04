@@ -64,6 +64,9 @@
         // Clear the imageView
         [imageView setImage:nil];
     }
+    
+    // set the title of the navigation bar
+    [[self navigationItem] setTitle:[item itemName]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -204,6 +207,13 @@
 {
     NSLog(@"User dismissed popover");
     imagePickerPopover = nil;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == nameField) {
+        [[self navigationItem] setTitle:[textField text]];
+    }
 }
 
 @end
