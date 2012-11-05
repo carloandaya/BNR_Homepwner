@@ -10,13 +10,16 @@
 #import "BNRItem.h"
 #import "ChangeDateViewController.h"
 #import "BNRImageStore.h"
+#import "BNRItemStore.h"
 
 @interface DetailViewController ()
+- (void)save:(id)sender;
+- (void)cancel:(id)sender;
 
 @end
 
 @implementation DetailViewController
-
+@synthesize dismissBlock;
 @synthesize item;
 
 - (void)viewDidLoad
@@ -242,6 +245,19 @@
     @throw [NSException exceptionWithName:@"Wrong initializer" reason:@"Use initForNewItem:" userInfo:nil];
     
     return nil;
+}
+
+- (void)save:(id)sender
+{
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
+}
+
+- (void)cancel:(id)sender
+{
+    // If the user cancels, remove the BNRItem from the store
+    [[BNRItemStore sharedStore] removeItem:item];
+    
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
 
 @end

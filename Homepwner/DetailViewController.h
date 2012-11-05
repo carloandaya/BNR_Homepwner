@@ -30,6 +30,7 @@
 // create a new BNRItem or to show an existing one.
 - (id)initForNewItem:(BOOL)isNew;
 
-@property (nonatomic, strong) BNRItem *item; 
+@property (nonatomic, strong) BNRItem *item;
+@property (nonatomic, copy) void (^dismissBlock) (void);
 
 @end
