@@ -26,6 +26,10 @@
 - (IBAction)backgroundTapped:(id)sender;
 - (IBAction)removePicture:(id)sender;
 
+// Checks whether the instance of DetailViewController is being used to
+// create a new BNRItem or to show an existing one.
+- (id)initForNewItem:(BOOL)isNew;
+
 @property (nonatomic, strong) BNRItem *item; 
 
 @end

@@ -100,23 +100,23 @@
 		23FAE70A16339BE300AA23EA /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				234574D6163F6659005BC596 /* BNRImageStore.h */,
+				234574D7163F6659005BC596 /* BNRImageStore.m */,
 				23FAE72916339FC500AA23EA /* BNRItem.h */,
+				23FAE72A16339FC500AA23EA /* BNRItem.m */,
+				23FAE72C1633A09000AA23EA /* BNRItemStore.h */,
+				23FAE72D1633A09000AA23EA /* BNRItemStore.m */,
 				23FB818A163B9E3D005097D3 /* ChangeDateViewController.h */,
 				23FB818B163B9E3D005097D3 /* ChangeDateViewController.m */,
 				23FB818C163B9E3D005097D3 /* ChangeDateViewController.xib */,
-				23FAE72C1633A09000AA23EA /* BNRItemStore.h */,
-				23FAE72D1633A09000AA23EA /* BNRItemStore.m */,
-				23FAE72A16339FC500AA23EA /* BNRItem.m */,
-				23FAE71316339BE300AA23EA /* HomepwnerAppDelegate.h */,
-				23FAE71416339BE300AA23EA /* HomepwnerAppDelegate.m */,
 				23F1CCA61638FA97008E219B /* DetailViewController.h */,
 				23F1CCA71638FA97008E219B /* DetailViewController.m */,
 				23F1CCA81638FA97008E219B /* DetailViewController.xib */,
-				23FAE70B16339BE300AA23EA /* Supporting Files */,
+				23FAE71316339BE300AA23EA /* HomepwnerAppDelegate.h */,
+				23FAE71416339BE300AA23EA /* HomepwnerAppDelegate.m */,
 				23FAE72516339CB300AA23EA /* ItemsViewController.h */,
 				23FAE72616339CB300AA23EA /* ItemsViewController.m */,
-				234574D6163F6659005BC596 /* BNRImageStore.h */,
-				234574D7163F6659005BC596 /* BNRImageStore.m */,
+				23FAE70B16339BE300AA23EA /* Supporting Files */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";

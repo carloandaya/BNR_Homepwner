@@ -216,4 +216,32 @@
     }
 }
 
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"DetailViewController" bundle:nil];
+    
+    if (self) {
+        if (isNew) { // if we are creating a new item
+            
+            // create a done button and put it on the right side of the navigation bar
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            [[self navigationItem] setRightBarButtonItem:doneItem];
+            
+            // create a cancel button and put it on the left side of the navigation bar
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            [[self navigationItem] setLeftBarButtonItem:cancelItem];
+            
+        }
+    }
+    
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    @throw [NSException exceptionWithName:@"Wrong initializer" reason:@"Use initForNewItem:" userInfo:nil];
+    
+    return nil;
+}
+
 @end
