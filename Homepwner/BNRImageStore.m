@@ -30,6 +30,14 @@
     self = [super init];
     if (self) {
         dictionary = [[NSMutableDictionary alloc] init];
+        
+        // Register for low memory warning notifications,
+        // implementing the clearCache: method when a warning is received.
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(clearCache:)
+                   name:UIApplicationDidReceiveMemoryWarningNotification
+                 object:nil];
     }
     return self;
 }
@@ -88,6 +96,12 @@
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
     return [documentDirectory stringByAppendingPathComponent:key];
+}
+
+- (void)clearCache:(NSNotification *)note
+{
+    NSLog(@"flushing %d images out of the cache", [dictionary count]);
+    [dictionary removeAllObjects];
 }
 
 @end
