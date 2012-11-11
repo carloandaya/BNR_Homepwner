@@ -132,6 +132,7 @@
         
         [imagePickerPopover setDelegate:self];
         
+        
         // Display the popover controller; sender
         // is the camera bar button item
         [imagePickerPopover presentPopoverFromBarButtonItem:sender
