@@ -174,6 +174,8 @@
     // Get picked image from info dictionary
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
+    [item setThumbnailDataFromImage:image];
+    
     // Generate a unique id for every time a picture is taken
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
     
