@@ -24,6 +24,8 @@
         [self setValueInDollars:[aDecoder decodeIntForKey:@"valueInDollars"]];
         
         [self setDateCreated:[aDecoder decodeObjectForKey:@"dateCreated"]];
+        
+        [self setThumbnailData:[aDecoder decodeObjectForKey:@"thumbnailData"]];
     }
     
     return self;
@@ -125,6 +127,8 @@
     [aCoder encodeObject:imageKey forKey:@"imageKey"];
     
     [aCoder encodeInt:valueInDollars forKey:@"valueInDollars"];
+    
+    [aCoder encodeObject:thumbnailData forKey:@"thumbnailData"];
 }
 
 - (UIImage *)thumbnail

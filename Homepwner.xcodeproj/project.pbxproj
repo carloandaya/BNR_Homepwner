@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2321E30C1658D7A300637559 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2321E30A1658D7A300637559 /* ImageViewController.m */; };
+		2321E30D1658D7A300637559 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2321E30B1658D7A300637559 /* ImageViewController.xib */; };
 		234574D8163F6659005BC596 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 234574D7163F6659005BC596 /* BNRImageStore.m */; };
 		23F1CCA91638FA97008E219B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F1CCA71638FA97008E219B /* DetailViewController.m */; };
 		23F1CCAA1638FA97008E219B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F1CCA81638FA97008E219B /* DetailViewController.xib */; };
@@ -29,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2321E3091658D7A300637559 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		2321E30A1658D7A300637559 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		2321E30B1658D7A300637559 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		234574D6163F6659005BC596 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
 		234574D7163F6659005BC596 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 		23F1CCA61638FA97008E219B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -125,6 +130,9 @@
 				23FAE72516339CB300AA23EA /* ItemsViewController.h */,
 				23FAE72616339CB300AA23EA /* ItemsViewController.m */,
 				23FAE70B16339BE300AA23EA /* Supporting Files */,
+				2321E3091658D7A300637559 /* ImageViewController.h */,
+				2321E30A1658D7A300637559 /* ImageViewController.m */,
+				2321E30B1658D7A300637559 /* ImageViewController.xib */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				23F1CCAA1638FA97008E219B /* DetailViewController.xib in Resources */,
 				23FB818E163B9E3D005097D3 /* ChangeDateViewController.xib in Resources */,
 				23FBF9201657D9E7006026C9 /* HomepwnerItemCell.xib in Resources */,
+				2321E30D1658D7A300637559 /* ImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +230,7 @@
 				23FB818D163B9E3D005097D3 /* ChangeDateViewController.m in Sources */,
 				234574D8163F6659005BC596 /* BNRImageStore.m in Sources */,
 				23FBF91D1657D9A1006026C9 /* HomepwnerItemCell.m in Sources */,
+				2321E30C1658D7A300637559 /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
