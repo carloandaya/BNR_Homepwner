@@ -28,4 +28,6 @@
 - (NSString *)itemArchivePath;
 - (BOOL)saveChanges;
 
+- (void)loadAllItems;
+
 @end

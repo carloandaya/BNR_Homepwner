@@ -56,6 +56,8 @@
         
         // The managed object context can manage undo, but we don't need it
         [context setUndoManager:nil];
+        
+        [self loadAllItems];
     }
     
     return self;
@@ -119,6 +121,30 @@
     }
     
     return successful;
+}
+
+- (void)loadAllItems
+{
+    if (!allItems) {
+        // Prepare the fetch request by giving it an entity and a sort descriptor
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *a = [[model entitiesByName] objectForKey:@"BNRItem"];
+        [request setEntity:a];
+        
+        NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"orderingValue"
+                                                             ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:sd]];
+        
+        // And then execute the fetch request
+        NSError *error;
+        NSArray *result = [context executeFetchRequest:request error:&error];
+        if (!result) {
+            [NSException raise:@"Fetch failed"
+                        format:@"Reason: %@", [error localizedDescription]];
+        }
+        allItems = [[NSMutableArray alloc] initWithArray:result];
+    }
 }
 
 @end
