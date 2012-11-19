@@ -17,14 +17,16 @@
     __weak IBOutlet UITextField *valueField;
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UIImageView *imageView;
+    __weak IBOutlet UIButton *assetTypeButton;
     
     UIPopoverController *imagePickerPopover;
 }
-
+- (IBAction)showAssetTypePicker:(id)sender;
 - (IBAction)changeDate:(id)sender;
 - (IBAction)takePicture:(id)sender;
 - (IBAction)backgroundTapped:(id)sender;
 - (IBAction)removePicture:(id)sender;
+
 
 // Checks whether the instance of DetailViewController is being used to
 // create a new BNRItem or to show an existing one.

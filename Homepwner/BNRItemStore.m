@@ -71,7 +71,18 @@
 
 - (BNRItem *)createItem
 {
-    BNRItem *p = [[BNRItem alloc] init];
+    double order;
+    
+    if ([allItems count] == 0) { // if there are no items in the array, this is the first object
+        order = 1.0;
+    } else { // otherwise, make it the last object
+        order = [[allItems lastObject] orderingValue] + 1.0;
+    }
+    NSLog(@"Adding after %d items, order = %.2f", [allItems count], order);
+    
+    BNRItem *p = [NSEntityDescription insertNewObjectForEntityForName:@"BNRItem" inManagedObjectContext:context];
+    
+    [p setOrderingValue:order];
     
     // Add that item to the mutable array
     [allItems addObject:p];
@@ -82,7 +93,7 @@
 {
     NSString *key = [p imageKey];
     [[BNRImageStore sharedStore] deleteImageForKey:key];
-    
+    [context deleteObject:p];
     [allItems removeObjectIdenticalTo:p];
 }
 
@@ -100,6 +111,30 @@
     
     // Insert p in array at new location
     [allItems insertObject:p atIndex:to];
+    
+    // Computing a new orderVaue for the object that was moved
+    double lowerBound = 0.0;
+    
+    // Is there an object before it in the array?
+    if (to > 0) {
+        lowerBound = [[allItems objectAtIndex:to - 1] orderingValue];
+    } else {
+        lowerBound = [[allItems objectAtIndex:1] orderingValue] - 2.0;
+    }
+    
+    double upperBound = 0.0;
+    
+    // Is there an object after it in the array?
+    if (to < [allItems count] - 1) {
+        upperBound = [[allItems objectAtIndex:to + 1] orderingValue];
+    } else {
+        upperBound = [[allItems objectAtIndex:to - 1] orderingValue] + 2.0;
+    }
+    
+    double newOrderValue = (lowerBound + upperBound) / 2.0;
+    
+    NSLog(@"moving to order %f", newOrderValue);
+    [p setOrderingValue:newOrderValue];
 }
 
 - (NSString *)itemArchivePath
@@ -147,4 +182,43 @@
     }
 }
 
+- (NSArray *)allAssetTypes
+{
+    if (!allAssetTypes) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *e = [[model entitiesByName] objectForKey:@"BNRAssetType"];
+        [request setEntity:e];
+        
+        NSError *error;
+        
+        NSArray *result = [context executeFetchRequest:request
+                                                 error:&error];
+        if (!result) {
+            [NSException raise:@"Fetch failed"
+                        format:@"Reason: %@", [error localizedDescription]];
+        }
+        allAssetTypes = [[NSMutableArray alloc] initWithArray:result];
+    }
+    
+    // Is this the first time the program is being run?
+    if ([allAssetTypes count] == 0) {
+        NSManagedObject *type;
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"BNRAssetType" inManagedObjectContext:context];
+        [type setValue:@"Furniture" forKey:@"label"];
+        [allAssetTypes addObject:type];
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"BNRAssetType" inManagedObjectContext:context];
+        [type setValue:@"Jewelry" forKey:@"label"];
+        [allAssetTypes addObject:type];
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"BNRAssetType" inManagedObjectContext:context];
+        [type setValue:@"Electronics" forKey:@"label"];
+        [allAssetTypes addObject:type];
+    }
+    
+    return allAssetTypes;
+    
+}
 @end

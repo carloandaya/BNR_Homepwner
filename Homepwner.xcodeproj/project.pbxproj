@@ -15,6 +15,7 @@
 		23F59326165989CF003FF87D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F59325165989CF003FF87D /* CoreData.framework */; };
 		23F5932A16598ADA003FF87D /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23F5932816598ADA003FF87D /* Homepwner.xcdatamodeld */; };
 		23F5932D165990F0003FF87D /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F5932C165990F0003FF87D /* BNRItem.m */; };
+		23F593301659DB3E003FF87D /* AssetTypePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F5932F1659DB3E003FF87D /* AssetTypePicker.m */; };
 		23FAE70516339BE300AA23EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FAE70416339BE300AA23EA /* UIKit.framework */; };
 		23FAE70716339BE300AA23EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FAE70616339BE300AA23EA /* Foundation.framework */; };
 		23FAE70916339BE300AA23EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FAE70816339BE300AA23EA /* CoreGraphics.framework */; };
@@ -45,6 +46,8 @@
 		23F5932916598ADA003FF87D /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		23F5932B165990F0003FF87D /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItem.h; path = ../BNRItem.h; sourceTree = "<group>"; };
 		23F5932C165990F0003FF87D /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItem.m; path = ../BNRItem.m; sourceTree = "<group>"; };
+		23F5932E1659DB3E003FF87D /* AssetTypePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetTypePicker.h; sourceTree = "<group>"; };
+		23F5932F1659DB3E003FF87D /* AssetTypePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTypePicker.m; sourceTree = "<group>"; };
 		23FAE70016339BE300AA23EA /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FAE70416339BE300AA23EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23FAE70616339BE300AA23EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 				2321E30A1658D7A300637559 /* ImageViewController.m */,
 				2321E30B1658D7A300637559 /* ImageViewController.xib */,
 				23F5932816598ADA003FF87D /* Homepwner.xcdatamodeld */,
+				23F5932E1659DB3E003FF87D /* AssetTypePicker.h */,
+				23F5932F1659DB3E003FF87D /* AssetTypePicker.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				2321E30C1658D7A300637559 /* ImageViewController.m in Sources */,
 				23F5932A16598ADA003FF87D /* Homepwner.xcdatamodeld in Sources */,
 				23F5932D165990F0003FF87D /* BNRItem.m in Sources */,
+				23F593301659DB3E003FF87D /* AssetTypePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

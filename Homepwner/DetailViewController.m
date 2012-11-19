@@ -11,6 +11,7 @@
 #import "ChangeDateViewController.h"
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
+#import "AssetTypePicker.h"
 
 @interface DetailViewController ()
 - (void)save:(id)sender;
@@ -69,6 +70,14 @@
         // Clear the imageView
         [imageView setImage:nil];
     }
+    
+    NSString *typeLabel = [[item assetType] valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    
+    [assetTypeButton setTitle:[NSString stringWithFormat:@"Type: %@", typeLabel]
+                     forState:UIControlStateNormal];
     
     // set the title of the navigation bar
     [[self navigationItem] setTitle:[item itemName]];
@@ -265,4 +274,13 @@
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
 
+- (IBAction)showAssetTypePicker:(id)sender
+{
+    [[self view] endEditing:YES];
+    
+    AssetTypePicker *assetTypePicker = [[AssetTypePicker alloc] init];
+    [assetTypePicker setItem:item];
+    
+    [[self navigationController] pushViewController:assetTypePicker animated:YES];
+}
 @end
