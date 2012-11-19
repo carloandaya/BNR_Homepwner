@@ -37,14 +37,20 @@
 {
     [super viewWillAppear:animated];
     
-    [datePicker setDate:[item dateCreated]];
+    // Convert NSTimeInterval to NSDate
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item dateCreated]];
+    
+    [datePicker setDate:date];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [item setDateCreated:[datePicker date]];
+    // Convert NSDate to NSTimeInterval
+    NSDate *date = [datePicker date];
+    
+    [item setDateCreated:[date timeIntervalSinceReferenceDate]];
 }
 
 - (void)didReceiveMemoryWarning

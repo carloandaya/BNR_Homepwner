@@ -31,14 +31,31 @@
 {
     self = [super init];
     if (self) {
-        NSString *path = [self itemArchivePath];
-        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        // Read in Homepwner.xcdatamodeld
+        model = [NSManagedObjectModel mergedModelFromBundles:nil];
         
-        // If the array hadn't been saved previously, create a new empty one
-        if (!allItems) {
-            allItems = [[NSMutableArray alloc] init];
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        
+        // Where does the SQLite file go?
+        NSString *path = [self itemArchivePath];
+        NSURL *storeURL = [NSURL fileURLWithPath:path];
+        
+        NSError *error = nil;
+        
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType
+                               configuration:nil
+                                         URL:storeURL
+                                     options:nil
+                                       error:&error]) {
+            [NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
         }
         
+        // Create the managed object context
+        context = [[NSManagedObjectContext alloc] init];
+        [context setPersistentStoreCoordinator:psc];
+        
+        // The managed object context can manage undo, but we don't need it
+        [context setUndoManager:nil];
     }
     
     return self;
@@ -90,15 +107,18 @@
     // Get one and only document directory from that list
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
-    return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
 }
 
 - (BOOL)saveChanges
 {
-    // returns success or failure
-    NSString *path = [self itemArchivePath];
+    NSError *err = nil;
+    BOOL successful = [context save:&err];
+    if (!successful) {
+        NSLog(@"Error saving: %@", [err localizedDescription]);
+    }
     
-    return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
+    return successful;
 }
 
 @end
