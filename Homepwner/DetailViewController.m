@@ -222,8 +222,24 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    NSLog(@"User dismissed popover");
-    imagePickerPopover = nil;
+    if (popoverController == assetTypePopover) {
+        NSLog(@"User dismissed the asset type popover");
+        // Set the asset type picker button's title accordingly
+        NSString *typeLabel = [[item assetType] valueForKey:@"label"];
+        if (!typeLabel) {
+            typeLabel = @"None";
+        }
+            
+        [assetTypeButton setTitle:[NSString stringWithFormat:@"Type: %@", typeLabel]
+                        forState:UIControlStateNormal];
+
+    }
+    
+    if (popoverController == imagePickerPopover) {
+        NSLog(@"User dismissed the image picker popover");
+        imagePickerPopover = nil;
+    }
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -281,6 +297,30 @@
     AssetTypePicker *assetTypePicker = [[AssetTypePicker alloc] init];
     [assetTypePicker setItem:item];
     
-    [[self navigationController] pushViewController:assetTypePicker animated:YES];
+    if (assetTypePopover.isPopoverVisible) {
+        // dismiss the popover and set it to nil then return
+        [assetTypePopover dismissPopoverAnimated:YES];
+        assetTypePopover = nil;
+        return;
+    }
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // present the assetTypePicker table in the popover
+        UINavigationController *assetNavController = [[UINavigationController alloc] initWithRootViewController:assetTypePicker];
+        assetTypePopover = [[UIPopoverController alloc] initWithContentViewController:assetNavController];
+        // set the size of the popover
+        assetTypePopover.popoverContentSize = CGSizeMake(320.0, 400.0);
+        // set the delegate of the popover
+        assetTypePopover.delegate = self;
+        
+        // present the popover on the asset type selector button
+        [assetTypePopover presentPopoverFromRect:assetTypeButton.frame
+                                          inView:self.view
+                        permittedArrowDirections:UIPopoverArrowDirectionAny
+                                        animated:YES];
+        
+    } else {
+        [[self navigationController] pushViewController:assetTypePicker animated:YES];
+    }
 }
 @end

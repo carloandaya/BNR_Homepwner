@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class BNRItem;
+@class BNRItem, DetailViewController;
 
 @interface AssetTypePicker : UITableViewController
 
 @property(nonatomic, strong) BNRItem *item;
-
 
 @end

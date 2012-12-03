@@ -20,6 +20,7 @@
     __weak IBOutlet UIButton *assetTypeButton;
     
     UIPopoverController *imagePickerPopover;
+    UIPopoverController *assetTypePopover;
 }
 - (IBAction)showAssetTypePicker:(id)sender;
 - (IBAction)changeDate:(id)sender;

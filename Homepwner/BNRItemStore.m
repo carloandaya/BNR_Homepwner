@@ -184,24 +184,28 @@
 
 - (NSArray *)allAssetTypes
 {
-    if (!allAssetTypes) {
+    if (!allAssetTypes) { // if the allAssetTypes NSMutableArray does not exist
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
         NSEntityDescription *e = [[model entitiesByName] objectForKey:@"BNRAssetType"];
-        [request setEntity:e];
+        [request setEntity:e]; // set the BNRAssetType as the entity for the request
         
         NSError *error;
         
+        // the result object contains all the objects in BNRAssetType
         NSArray *result = [context executeFetchRequest:request
                                                  error:&error];
         if (!result) {
             [NSException raise:@"Fetch failed"
                         format:@"Reason: %@", [error localizedDescription]];
         }
+        
+        // copy the result into the allAssetTypes instance variable
         allAssetTypes = [[NSMutableArray alloc] initWithArray:result];
     }
     
     // Is this the first time the program is being run?
+    // If so, add some default asset types
     if ([allAssetTypes count] == 0) {
         NSManagedObject *type;
         
